@@ -1,0 +1,56 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "fullName": "saad",
+      "email": "saba@gmail.com",
+      "contactPreference": "email",
+      "phone": "5641238971",
+      "skills": [
+        {
+          "skillName": "C#",
+          "experienceInYears": 1,
+          "proficiency": "beginner"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "saaad",
+      "email": "kane@gmail.com",
+      "contactPreference": "phone",
+      "phone": "3242138971",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experienceInYears": 2,
+          "proficiency": "beginner"
+        },
+        {
+          "skillName": "HTML",
+          "experienceInYears": 2,
+          "proficiency": "intermediate"
+        },
+        {
+          "skillName": "LINQ",
+          "experienceInYears": 3,
+          "proficiency": "advanced"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fullName": "kane",
+      "contactPreference": "email",
+      "email": "kan@gmail.com",
+      "phone": "233242",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experienceInYears": "2",
+          "proficiency": "intermediate"
+        }
+      ]
+    }
+  ]
+}
