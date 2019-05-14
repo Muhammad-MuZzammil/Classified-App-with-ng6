@@ -46,10 +46,10 @@ export class CreateEmployeeComponent implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
       contactPreference: ['email'],
       emailGroup: this.fb.group({
-        email: ['', [Validators.required, CustomValidator.emailDomain('gmail.com')]],
-        confirmEmail: ['', Validators.required],
+        email: ['', [ CustomValidator.emailDomain('gmail.com')]],
+        confirmEmail: [''],
       }, { validator: matchEmail }),
-      phone: ['',],
+      phone: [''],
       skills: this.fb.array([
         this.addSkillFormGroup()
       ])
@@ -130,8 +130,10 @@ export class CreateEmployeeComponent implements OnInit {
       this.formErrors[key] = ''
       if (abstractControl && !abstractControl.valid && abstractControl.touched || abstractControl.dirty || abstractControl.value !== '') {
         const messages = this.validationMessages[key]
+        
         for (const errorKey in abstractControl.errors) {
           if (errorKey) {
+            console.log(key)
             this.formErrors[key] += messages[errorKey] + ' '
           }
         }
@@ -142,20 +144,33 @@ export class CreateEmployeeComponent implements OnInit {
 
     })
   }
-  onContactPreferenceChange(selectedValue: string) {
+  onContactPreferenceChange(selectedValue: string) { // function called when changes value of radio button of Email and Phone
     const phoneControl = this.employeeForm.get('phone')
+    const emailControl = this.employeeForm.get('emailGroup').get('email')
+    const confirmEmailControl = this.employeeForm.get('emailGroup').get('confirmEmail')
+    
     if (selectedValue == 'phone') {
       phoneControl.setValidators(Validators.required)
     }
     else {
       phoneControl.clearValidators();
     }
+    if (selectedValue == 'email') {
+      emailControl.setValidators(Validators.required)
+      confirmEmailControl.setValidators(Validators.required)
+    }
+    else {
+      emailControl.clearValidators();
+      confirmEmailControl.clearValidators();
+    }
     phoneControl.updateValueAndValidity()
+    emailControl.updateValueAndValidity()
+    confirmEmailControl.updateValueAndValidity()
   }
   onLoadDataClick() {
 
   }
-  addSkillFormGroup(): FormGroup {
+  addSkillFormGroup(): FormGroup { // add skill button
     return this.fb.group({
       skillName: ['', Validators.required],
       experienceInYears: ['', Validators.required],

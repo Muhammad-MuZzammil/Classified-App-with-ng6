@@ -51,6 +51,20 @@
           "proficiency": "intermediate"
         }
       ]
+    },
+    {
+      "id": 4,
+      "fullName": "saad",
+      "contactPreference": "email",
+      "email": "saad@gmail.com",
+      "phone": "",
+      "skills": [
+        {
+          "skillName": "java",
+          "experienceInYears": "2",
+          "proficiency": "beginner"
+        }
+      ]
     }
   ]
 }
